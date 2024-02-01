@@ -1,0 +1,10 @@
+{
+  "name": "frontend-spotify-api",
+  "version": "1.0.0",
+  "description": "Busca por informações de artistas, álbuns e músicas de forma direta e rápida.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Davi Alessandro Lopes Rodrigues",
+  "license": "ISC"
+}

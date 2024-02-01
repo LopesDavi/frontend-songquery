@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Davi Lopes" />
+    <meta
+      name="description"
+      content="Busca por informações de artistas, álbuns e músicas de forma direta e rápida."
+    />
+
+    <title>SongQuery - Track</title>
+
+    <link rel="stylesheet" href="get-track.css" />
+    <link
+      rel="shortcut icon"
+      href="/images/logo-project.png"
+      type="image/x-icon"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!--sweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="track-search">
+        <input id="input" type="text" placeholder="Digite o nome da música" />
+        <button id="search-button" class="buttons" type="button"><img src="/images/icons/icon-search.svg" class="search-button"></button>
+        <button id="clean-button" class="buttons" type="button"><img src="/images/icons/icon-close.svg" class="clean-button"></button>
+      </div>
+      <div id="user-response">
+        <a id="track-cover-image">
+          <img src="/images/logo-name-project.png" id="track-cover"/>
+        </a>
+      </div>
+      <a id="back-home" href="/index.html">Voltar</a>
+    </div>
+    <div id="project-logo">
+      <img src="/images/name-project.png"/>
+    </div>
+    <script src="/get-track/get-track.js"></script>
+  </body>
+</html>

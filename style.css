@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cor-roxo: #2a2141;
+  --cor-lilas: #ad95c8;
+  --cor-branco: #ffff;
+  --cor-preto: #000000;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+
+  background-color: var(--cor-preto);
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+
+  margin: 100px auto;
+  padding: 24px;
+
+  width: 700px;
+
+  border-radius: 10px;
+
+  background-color: #2a2141;
+}
+
+/*====================ID - LOGO====================*/
+#logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#logo img {
+  width: 300px;
+
+  border-radius: 100px;
+}
+
+#logo p {
+  color: var(--cor-branco);
+
+  font-size: 20px;
+}
+
+/*====================ID - BUTTONS====================*/
+section div#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 588px;
+  height: 320px;
+}
+
+#buttons ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+
+  list-style: none;
+}
+
+#buttons ul li a {
+  text-decoration: none;
+}
+
+#buttons ul li button {
+  border: 1.5px solid var(--cor-lilas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  width: 540px;
+  height: 56px;
+
+  color: white;
+
+  border-radius: 8px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  background-color: var(--cor-roxo);
+
+  transition-duration: 0.05s;
+  transition-property: background-color;
+
+  box-shadow: 3px 3px 3px var(--cor-lilas);
+}
+
+#buttons ul li button:hover {
+  transition-duration: 0.04s;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/*====================ID - SOCIAL====================*/
+section div#social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+
+  width: 588px;
+  height: 88px;
+}
+
+#social ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 16px;
+}
+
+#social ul li {
+  list-style: none;
+}
+
+#social ul li img {
+  width: 30px;
+
+  transition-duration: 0.04s;
+}
+
+#social ul li img:hover {
+  width: 40px;
+
+  transition-duration: 0.02s;
+}
+
+#social p {
+  color: white;
+}
+
+#social a {
+  color: var(--cor-branco);
+}

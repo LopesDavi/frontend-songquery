@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cor-roxo: #2a2141;
+  --cor-lilas: #ad95c8;
+  --cor-branco: white;
+  --cor-preto: black;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-family: "Inter", sans-serif;
+
+  background-color: black;
+}
+
+/*========== DIV - MAIN-CONTAINER ==========*/
+div#main-container {
+  border: 2px solid var(--cor-lilas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 780px;
+  height: 680px;
+
+  margin: 17vh auto 15px;
+  padding: 24px;
+
+  background-color: var(--cor-preto);
+
+  border-radius: 9px;
+
+  gap: 20px;
+}
+
+/*========== DIV - TRACK-SEARCH ==========*/
+div#track-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 600px;
+  height: 80px;
+
+  background-color: var(--cor-roxo);
+
+  gap: 5px;
+
+  border-radius: 10px;
+}
+
+div#track-search input {
+  width: 300px;
+  height: 40px;
+
+  padding-left: 10px;
+
+  background-color: var(--cor-roxo);
+  border: 2px solid var(--cor-lilas);
+
+  border-radius: 10px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+
+  color: var(--cor-lilas);
+}
+
+div#track-search input:focus {
+  outline: none;
+}
+
+div#track-search button {
+  border: 2px solid var(--cor-lilas);
+
+  width: 40px;
+  height: 39px;
+
+  background-color: var(--cor-roxo);
+
+  border-radius: 10px;
+}
+
+div#track-search button .search-button {
+  width: 17px;
+}
+
+div#track-search button .clean-button {
+  width: 15px;
+}
+
+div#track-search .buttons {
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+}
+
+
+div#track-search .buttons:hover {
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+
+  box-shadow: 0 0 7px var(--cor-lilas);
+}
+
+
+/*========== DIV - USER-RESPONSE ==========*/
+div#user-response {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  width: 600px;
+  height: 500px;
+
+  background-color: var(--cor-roxo);
+
+  gap: 10px;
+
+  border-radius: 10px;
+
+  text-align: center;
+}
+
+a#track-cover-image img {
+  //border: 3px solid var(--cor-lilas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 10px;
+
+  width: 270px;
+
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+}
+
+a#track-cover-image .hover:hover {
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+div#user-response a {
+  text-decoration: none;
+}
+
+div#user-response a#track-name {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+
+  color: var(--cor-branco);
+}
+
+div#user-response a#track-artist-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  width: 350px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: regular;
+  font-size: 15px;
+  
+  color: #e1e1e1;
+}
+
+div#track-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--cor-branco);
+
+  padding: 4px;
+
+  border-radius: 8px;
+}
+
+div.preview-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  gap: 5px;
+
+  width: 270px;
+  height: 45px;
+
+  background-color: #d119;
+  border-radius: 8px;
+}
+
+div.preview-alert #error-icon {
+  width: 20px;
+  text-align: center;
+}
+
+div.preview-alert p {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--cor-branco);
+}
+
+/*========== BUTTON - VOLTAR ==========*/
+
+div#main-container #back-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--cor-branco);
+
+  width: 100px;
+  height: 30px;
+
+  background-color: var(--cor-roxo);
+
+  border-radius: 5px;
+}
+div#main-container a#back-home {
+  text-decoration: none;
+
+  color: var(--cor-branco);
+}
+
+/*========== DIV - LOGO ==========*/
+div#project-logo img {
+  width: 180px;
+  height: 55px;
+}

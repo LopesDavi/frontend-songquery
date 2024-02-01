@@ -1,0 +1,287 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cor-roxo: #2a2141;
+  --cor-lilas: #ad95c8;
+  --cor-branco: white;
+  --cor-preto: black;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-family: "Inter", sans-serif;
+
+  background-color: black;
+}
+
+/*========== DIV - MAIN-CONTAINER ==========*/
+div#main-container {
+  border: 2px solid var(--cor-lilas);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 780px;
+  height: 680px;
+
+  margin: 17vh auto 15px;
+  padding: 24px;
+
+  background-color: var(--cor-preto);
+
+  border-radius: 9px;
+
+  gap: 20px;
+}
+
+/*========== DIV - ALBUM-SEARCH ==========*/
+div#album-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 600px;
+  height: 80px;
+
+  background-color: var(--cor-roxo);
+
+  gap: 5px;
+
+  border-radius: 10px;
+}
+
+div#album-search input {
+  border: 2px solid var(--cor-lilas);
+
+  width: 300px;
+  height: 40px;
+
+  padding-left: 10px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+
+  border-radius: 10px;
+
+  color: var(--cor-lilas);
+
+  background-color: var(--cor-roxo);
+}
+
+div#album-search input:focus {
+  outline: none;
+}
+
+div#album-search button {
+  border: 2px solid var(--cor-lilas);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 39px;
+
+  border-radius: 10px;
+
+  background-color: var(--cor-roxo);
+}
+
+div#album-search button .search-button {
+  width: 17px;
+}
+
+div#album-search button .clean-button {
+  width: 15px;
+}
+
+div#album-search .buttons {
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+}
+
+div#album-search .buttons:hover {
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+
+  box-shadow: 0 0 7px var(--cor-lilas);
+}
+
+/*========== DIV - USER-RESPONSE ==========*/
+div#user-response {
+  // border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  width: 600px;
+  height: 500px;
+
+  padding: 10px;
+
+  gap: 20px;
+
+  border-radius: 10px;
+
+  background-color: var(--cor-roxo);
+}
+
+div#main-album-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 400px;
+
+  gap: 8px;
+}
+
+a#album-cover-image img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 10px;
+
+  width: 270px;
+
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+}
+
+a#album-cover-image .hover:hover {
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+div#main-album-info a {
+  text-decoration: none;
+}
+
+div #album-name {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+
+  color: var(--cor-branco);
+}
+
+div #album-creator-name {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+
+  width: 250px;
+
+  color: #e1e1e1;
+}
+
+div #release-date {
+  font-family: "Inter", sans-serif;
+  font-weight: regular;
+  font-size: 14px;
+
+  color: #e1e1e1;
+}
+
+div#additional-album-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+div#additional-album-info p {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+
+  color: var(--cor-branco);
+}
+
+div#additional-album-info a {
+  border: 2.5px solid var(--cor-lilas);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-weight: regular;
+  font-size: 15px;
+
+  text-decoration: none;
+
+  color: var(--cor-branco);
+
+  width: 150px;
+  height: 35px;
+
+  padding: 5px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+}
+
+div#additional-album-info a:hover {
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+
+  width: 151px;
+
+  box-shadow: 0 0 7px var(--cor-lilas);
+}
+
+div#additional-album-info a.hidden {
+  display: none;
+}
+
+/*========== BUTTON - VOLTAR ==========*/
+
+div#main-container #back-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--cor-branco);
+
+  width: 100px;
+  height: 30px;
+
+  border-radius: 5px;
+
+  background-color: var(--cor-roxo);
+}
+
+/*========== DIV - LOGO ==========*/
+div#project-logo img {
+  width: 180px;
+  height: 55px;
+}
