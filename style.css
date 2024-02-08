@@ -12,15 +12,14 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
-
   background-color: var(--cor-preto);
 }
 
-section {
+div#main-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+
   gap: 5px;
 
   margin: 100px auto;
@@ -44,18 +43,17 @@ section {
 
 #logo img {
   width: 300px;
-
-  border-radius: 100px;
 }
 
 #logo p {
-  color: var(--cor-branco);
-
+  font-family: "Inter", sans-serif;
   font-size: 20px;
+
+  color: var(--cor-branco);
 }
 
 /*====================ID - BUTTONS====================*/
-section div#buttons {
+div#main-container div#buttons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,7 +67,8 @@ section div#buttons {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 16px;
+
+  gap: 20px;
 
   list-style: none;
 }
@@ -79,42 +78,44 @@ section div#buttons {
 }
 
 #buttons ul li button {
-  border: 1.5px solid var(--cor-lilas);
+  border: 2px solid var(--cor-lilas);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 
   width: 540px;
   height: 56px;
 
-  color: white;
+  color: var(--cor-branco);
 
   border-radius: 8px;
 
+  font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: bold;
 
   background-color: var(--cor-roxo);
 
-  transition-duration: 0.05s;
+  transition-duration: 0.3s;
   transition-property: background-color;
 
   box-shadow: 3px 3px 3px var(--cor-lilas);
 }
 
 #buttons ul li button:hover {
-  transition-duration: 0.04s;
+  transition-duration: 0.3s;
+  transition-property: background-color;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 /*====================ID - SOCIAL====================*/
-section div#social {
+div#main-container div#social {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
+
   gap: 30px;
 
   width: 588px;
@@ -124,9 +125,10 @@ section div#social {
 #social ul {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
-  gap: 16px;
+
+  width: 150px;
 }
 
 #social ul li {
@@ -137,18 +139,18 @@ section div#social {
   width: 30px;
 
   transition-duration: 0.04s;
+  transition-property: width;
 }
 
 #social ul li img:hover {
-  width: 40px;
-
+  transition-property: width;
   transition-duration: 0.02s;
+  
+  width: 32px;
 }
 
-#social p {
-  color: white;
-}
-
-#social a {
+#social p, a {
   color: var(--cor-branco);
+
+  font-family: "Inter", sans-serif;
 }

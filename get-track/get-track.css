@@ -5,10 +5,10 @@
 }
 
 :root {
-  --cor-roxo: #2a2141;
-  --cor-lilas: #ad95c8;
-  --cor-branco: white;
-  --cor-preto: black;
+  --bg-color: #2a2141;
+  --border-color: #ad95c8;
+  --font-color: white;
+  --bg-body: black;
 }
 
 body {
@@ -17,14 +17,17 @@ body {
   justify-content: center;
   flex-direction: column;
 
-  font-family: "Inter", sans-serif;
+  height: 100vh;
 
-  background-color: black;
+  background-color: var(--bg-body);
+
+  font-family: "Inter", sans-serif;
 }
 
 /*========== DIV - MAIN-CONTAINER ==========*/
-div#main-container {
-  border: 2px solid var(--cor-lilas);
+#main-container {
+  border: 2px solid var(--border-color);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,10 +36,7 @@ div#main-container {
   width: 780px;
   height: 680px;
 
-  margin: 17vh auto 15px;
   padding: 24px;
-
-  background-color: var(--cor-preto);
 
   border-radius: 9px;
 
@@ -44,7 +44,7 @@ div#main-container {
 }
 
 /*========== DIV - TRACK-SEARCH ==========*/
-div#track-search {
+#track-search {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,79 +52,73 @@ div#track-search {
   width: 600px;
   height: 80px;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 
   gap: 5px;
 
   border-radius: 10px;
 }
 
-div#track-search input {
+#track-search input {
+  border: 2px solid var(--border-color);
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+
   width: 300px;
   height: 40px;
 
   padding-left: 10px;
 
-  background-color: var(--cor-roxo);
-  border: 2px solid var(--cor-lilas);
+  background-color: var(--bg-color);
+
+  color: var(--border-color);
 
   border-radius: 10px;
 
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-
-  color: var(--cor-lilas);
-}
-
-div#track-search input:focus {
   outline: none;
 }
 
-div#track-search button {
-  border: 2px solid var(--cor-lilas);
+#track-search button {
+  border: 2px solid var(--border-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   width: 40px;
   height: 39px;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 
   border-radius: 10px;
-}
 
-div#track-search button .search-button {
-  width: 17px;
-}
-
-div#track-search button .clean-button {
-  width: 15px;
-}
-
-div#track-search .buttons {
   transition-duration: 0.2s;
   transition-property: box-shadow;
 }
 
+#track-search button img {
+  width: 15.5px;
+}
 
-div#track-search .buttons:hover {
+#track-search button:hover {
   transition-duration: 0.2s;
   transition-property: box-shadow;
 
-  box-shadow: 0 0 7px var(--cor-lilas);
+  box-shadow: 0 0 7px var(--border-color);
 }
-
 
 /*========== DIV - USER-RESPONSE ==========*/
-div#user-response {
+#user-response {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
 
   width: 600px;
   height: 500px;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 
   gap: 10px;
 
@@ -133,100 +127,101 @@ div#user-response {
   text-align: center;
 }
 
-a#track-cover-image img {
-  //border: 3px solid var(--cor-lilas);
+img#track-cover {
+  width: 280px;
+}
+
+#user-response ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 8px;
+
+  gap: 10px;
+
+  list-style: none;
+}
+
+#user-response ul li a {
+  text-decoration: none;
+}
+
+#user-response ul li:first-child a :nth-child(1) {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  margin-right: 10px;
-
-  width: 270px;
+  width: 280px;
 
   transition-duration: 0.2s;
   transition-property: box-shadow;
 }
 
-a#track-cover-image .hover:hover {
+#user-response ul li:first-child a :nth-child(1):hover {
   transition-duration: 0.2s;
   transition-property: box-shadow;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-div#user-response a {
-  text-decoration: none;
-}
-
-div#user-response a#track-name {
+#user-response ul > li:nth-of-type(2) a {
   font-family: "Inter", sans-serif;
   font-weight: bold;
   font-size: 22px;
 
-  color: var(--cor-branco);
+  color: var(--font-color);
 }
 
-div#user-response a#track-artist-name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  width: 350px;
-
+#user-response ul > li:nth-of-type(3) a {
   font-family: "Inter", sans-serif;
   font-weight: regular;
-  font-size: 15px;
-  
+  font-size: 16px;
+
   color: #e1e1e1;
 }
 
-div#track-preview {
+#track-preview {
   display: flex;
   align-items: center;
   justify-content: center;
 
   text-align: center;
-
-  font-family: "Inter", sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  color: var(--cor-branco);
 
   padding: 4px;
-
-  border-radius: 8px;
 }
 
-div.preview-alert {
+.preview-alert {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  gap: 5px;
 
   width: 270px;
   height: 45px;
 
+  gap: 5px;
+
   background-color: #d119;
+
   border-radius: 8px;
 }
 
-div.preview-alert #error-icon {
+.preview-alert img {
   width: 20px;
+
   text-align: center;
 }
 
-div.preview-alert p {
+.preview-alert p {
   font-family: "Inter", sans-serif;
   font-weight: 300;
   font-size: 13px;
-  color: var(--cor-branco);
+  color: var(--font-color);
 }
-
 /*========== BUTTON - VOLTAR ==========*/
 
-div#main-container #back-home {
+#main-container #back-home {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -235,23 +230,20 @@ div#main-container #back-home {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 15px;
-  color: var(--cor-branco);
+  color: var(--font-color);
+
+  text-decoration: none;
 
   width: 100px;
   height: 30px;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 
   border-radius: 5px;
 }
-div#main-container a#back-home {
-  text-decoration: none;
-
-  color: var(--cor-branco);
-}
 
 /*========== DIV - LOGO ==========*/
-div#project-logo img {
+img#logo-name-project {
   width: 180px;
   height: 55px;
 }

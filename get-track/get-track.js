@@ -26,9 +26,7 @@ cleanInput(
     const userResponse = document.getElementById("user-response");
     //Limpando informções que estavam renderizadas
     userResponse.innerHTML = `
-        <a id="track-cover-image">
-          <img src="/images/logo-name-project.png" id="track-cover"/>
-        </a>
+        <img src="/assets/images/logo-name-project.png" id="track-cover"/>
         <a id="track-name"></a>
         <a id="track-artist-name"></a>
         <div id="track-preview"></div>
@@ -39,8 +37,7 @@ cleanInput(
 //Função responsável por verificar se tem algum valor no input -> Caso tenha, exibe o cleanButton, caso não tenha deixa somente o searchButton
 function addCleanButton() {
   input.addEventListener("input", () => {
-    cleanButton.style.display =
-      input.value.trim() !== "" ? "inline-block" : "none";
+    cleanButton.style.display = input.value.trim() !== "" ? "flex" : "none";
   });
 }
 addCleanButton();
@@ -55,14 +52,37 @@ function fetchAndDisplayTrackInfo() {
     //Emitir erro caso usuário aperte no searchButton sem adicionar valor ao input
     if (inputValue === "") {
       //Utilizei a lib Sweetalert2 para emitir os erros
-      Swal.fire({
-        icon: "warning",
-        iconColor: "#2a2141",
-        confirmButtonColor: "#2a2141",
-        title:
-          "Parece que você esqueceu de informar qual música está buscando...",
-        text: "Por favor, digite o nome da música desejada.",
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: false,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
       });
+      Toast.fire({
+        icon: "warning",
+        title: "Digite o nome da música desejada",
+        iconColor: "#ffbb2f",
+        width: "400px",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__backInDown
+            animate__slower
+          `
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__backOutUp
+            animate__slower
+          `
+        }
+      }, );
     }
 
     try {
@@ -82,7 +102,7 @@ function fetchAndDisplayTrackInfo() {
       //Fluxo -> Se a prévia da música for DIFERENTE DE nulo ENTÃO adiciona a url na tag SE NÃO emite erro
       const previewUrl = data.preview_url;
       const errorWarning = `<div class="preview-alert">
-      <img src="./assets/icons/error-icon.svg" id="error-icon" alt="">
+      <img src="/assets/icons/error-icon.svg">
       <p>Prévia não disponível no momento!</p>
       </div>`;
 
@@ -90,15 +110,21 @@ function fetchAndDisplayTrackInfo() {
       const userResponse = document.getElementById("user-response");
       //Adicionando as informações(vindas da API) no HTML
       userResponse.innerHTML = `
-        <a id="track-cover-image" href="${
-          data.album.images[0].url
-        }" target="blank_">
-          <img src="${data.album.images[0].url}" id="track-cover" class="hover"/>
+      <ul id="infos-track">
+      <li>
+        <a href="${data.album.images[0].url}" target="blank_">
+          <img src="${data.album.images[0].url}"/>
         </a>
-        <a id="track-name" target="_blank" href="${
-          data.external_urls.spotify
-        }">${data.name}</a>
-        <a id="track-artist-name">${artist}</a>
+      </li>
+      <li>
+         <a target="_blank" href="${data.external_urls.spotify}">${
+        data.name
+      }</a>
+      </li>
+      <li>
+         <a>${artist}</a>
+      </li>
+      </ul> 
         <div id="track-preview">
         ${
           previewUrl != null
