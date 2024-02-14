@@ -5,10 +5,10 @@
 }
 
 :root {
-  --cor-roxo: #2a2141;
-  --cor-lilas: #ad95c8;
-  --cor-branco: white;
-  --cor-preto: black;
+  --bg-color: #2a2141;
+  --border-color: #ad95c8;
+  --font-color: white;
+  --bg-body: black;
 }
 
 body {
@@ -17,14 +17,16 @@ body {
   justify-content: center;
   flex-direction: column;
 
+  height: 100vh;
+
   font-family: "Inter", sans-serif;
 
-  background-color: black;
+  background-color: var(--bg-body);
 }
 
 /*========== DIV - MAIN-CONTAINER ==========*/
-div#main-container {
-  border: 2px solid var(--cor-lilas);
+#main-container {
+  border: 2px solid var(--border-color);
 
   display: flex;
   align-items: center;
@@ -34,10 +36,7 @@ div#main-container {
   width: 780px;
   height: 680px;
 
-  margin: 17vh auto 15px;
   padding: 24px;
-
-  background-color: var(--cor-preto);
 
   border-radius: 9px;
 
@@ -45,7 +44,7 @@ div#main-container {
 }
 
 /*========== DIV - ALBUM-SEARCH ==========*/
-div#album-search {
+#album-search {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,37 +52,35 @@ div#album-search {
   width: 600px;
   height: 80px;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 
   gap: 5px;
 
   border-radius: 10px;
 }
 
-div#album-search input {
-  border: 2px solid var(--cor-lilas);
+#album-search input {
+  border: 2px solid var(--border-color);
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
 
   width: 300px;
   height: 40px;
 
   padding-left: 10px;
 
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
+  background-color: var(--bg-color);
+
+  color: var(--border-color);
 
   border-radius: 10px;
 
-  color: var(--cor-lilas);
-
-  background-color: var(--cor-roxo);
-}
-
-div#album-search input:focus {
   outline: none;
 }
 
-div#album-search button {
-  border: 2px solid var(--cor-lilas);
+#album-search button {
+  border: 2px solid var(--border-color);
 
   display: flex;
   align-items: center;
@@ -92,65 +89,64 @@ div#album-search button {
   width: 40px;
   height: 39px;
 
+  background-color: var(--bg-color);
+
   border-radius: 10px;
 
-  background-color: var(--cor-roxo);
-}
-
-div#album-search button .search-button {
-  width: 17px;
-}
-
-div#album-search button .clean-button {
-  width: 15px;
-}
-
-div#album-search .buttons {
   transition-duration: 0.2s;
   transition-property: box-shadow;
 }
 
-div#album-search .buttons:hover {
+#album-search button:hover {
   transition-duration: 0.2s;
   transition-property: box-shadow;
 
-  box-shadow: 0 0 7px var(--cor-lilas);
+  box-shadow: 0 0 7px var(--border-color);
 }
 
+#album-search button img {
+  width: 15.5px;
+}
 /*========== DIV - USER-RESPONSE ==========*/
-div#user-response {
-  // border: 1px solid red;
+#user-response {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  text-align: center;
 
   width: 600px;
   height: 500px;
 
-  padding: 10px;
-
+  background-color: var(--bg-color);
+ 
   gap: 20px;
 
   border-radius: 10px;
 
-  background-color: var(--cor-roxo);
+  padding: 10px;
 }
 
-div#main-album-info {
+#user-response img {
+  width: 280px;
+}
+
+#main-album-info {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
+  font-family: "Inter", sans-serif;
+  color: var(--font-color);
+
   width: 400px;
 
   gap: 8px;
+
+  list-style: none;
 }
 
-a#album-cover-image img {
+#main-album-info > li:nth-of-type(1) img {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,61 +159,51 @@ a#album-cover-image img {
   transition-property: box-shadow;
 }
 
-a#album-cover-image .hover:hover {
+#main-album-info > li:nth-of-type(1) img:hover {
   transition-duration: 0.2s;
   transition-property: box-shadow;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-div#main-album-info a {
-  text-decoration: none;
-}
-
-div #album-name {
-  font-family: "Inter", sans-serif;
+#main-album-info > li:nth-of-type(2) a {
   font-weight: bold;
   font-size: 22px;
-
-  color: var(--cor-branco);
 }
 
-div #album-creator-name {
-  font-family: "Inter", sans-serif;
+#main-album-info > li:nth-of-type(3) a {
   font-weight: bold;
   font-size: 16px;
-
   width: 250px;
-
-  color: #e1e1e1;
 }
 
-div #release-date {
-  font-family: "Inter", sans-serif;
+#main-album-info > li:nth-of-type(4) p {
   font-weight: regular;
   font-size: 14px;
-
-  color: #e1e1e1;
 }
 
-div#additional-album-info {
+#additional-album-info ul {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  gap: 8px;
+  font-family: "Inter", sans-serif;
+  color: var(--font-color);
+
+  height: 65px;
+
+  gap: 10px;
+
+  list-style: none;
 }
 
-div#additional-album-info p {
-  font-family: "Inter", sans-serif;
+#additional-album-info > ul > li:nth-of-type(1) p {
   font-weight: 700;
   font-size: 15px;
-
-  color: var(--cor-branco);
 }
 
-div#additional-album-info a {
-  border: 2.5px solid var(--cor-lilas);
+#additional-album-info > ul > li:nth-of-type(2) a {
+  border: 2.5px solid var(--border-color);
 
   display: flex;
   align-items: center;
@@ -225,12 +211,11 @@ div#additional-album-info a {
   text-align: center;
 
   font-family: "Inter", sans-serif;
+  color: var(--font-color);
   font-weight: regular;
   font-size: 15px;
 
   text-decoration: none;
-
-  color: var(--cor-branco);
 
   width: 150px;
   height: 35px;
@@ -245,43 +230,40 @@ div#additional-album-info a {
   transition-property: box-shadow;
 }
 
-div#additional-album-info a:hover {
+#additional-album-info > ul > li:nth-of-type(2) a:hover {
   transition-duration: 0.2s;
   transition-property: box-shadow;
 
-  width: 151px;
-
-  box-shadow: 0 0 7px var(--cor-lilas);
+  box-shadow: 0 0 7px var(--border-color);
 }
 
-div#additional-album-info a.hidden {
+#additional-album-info > ul > li:nth-of-type(2) a.hidden {
   display: none;
 }
 
 /*========== BUTTON - VOLTAR ==========*/
 
-div#main-container #back-home {
+#back-home {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   text-decoration: none;
 
-  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 15px;
-  color: var(--cor-branco);
+  color: var(--font-color);
 
   width: 100px;
   height: 30px;
 
   border-radius: 5px;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 }
 
 /*========== DIV - LOGO ==========*/
-div#project-logo img {
+#logo-project {
   width: 180px;
   height: 55px;
 }

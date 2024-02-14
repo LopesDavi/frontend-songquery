@@ -4,7 +4,7 @@ const input = document.getElementById("input");
 const searchButton = document.getElementById("search-button");
 //Acessando o <button/> de limpar no documento HTML
 const cleanButton = document.getElementById("clean-button");
-
+ 
 //Iniciando a interface com o button (clean) escondido
 cleanButton.style.display = "none";
 
@@ -18,32 +18,22 @@ function cleanInput(callbackCleanAlbumInfo) {
     callbackCleanAlbumInfo();
   });
 }
-cleanInput(function cleanAlbumInfo() {
-  //Acessando a <div> (main-album-info)
-  const mainAlbumInfo = document.getElementById("main-album-info");
+cleanInput(
+  //Passei essa função como callback
+  //Função responsável por limpar todas informações (se caso tiver) exibidas na tela
+  function cleanAlbumInfo() {
+  //Acessando a <div> (user-response)
+  const userResponse = document.getElementById("user-response");
   //Limpando informções que estavam renderizadas
-  mainAlbumInfo.innerHTML = `
-  <a id="main-album-info"><img id="album-cover" src="../images/logo-name-project.png" style="width: 270px"/></a>
-  <a id="album-name"></a>
-  <a id="album-creator-name"></a> 
-  <p id="release-date"></p>
+  userResponse.innerHTML = `
+   <img src="../assets/images/logo-name-project.png"/>
   `;
-
-  //Acessando a <div> (additionalAlbumInfo)
-  const additionalAlbumInfo = document.getElementById("additional-album-info");
-  //Limpando informções que estavam renderizadas
-  additionalAlbumInfo.innerHTML = `
-  <p id="total-tracks"></p>
-  <a class="hidden" href="" target="blank_"></a> `;
 });
 
 //Função responsável por verificar se tem algum valor no input -> Caso tenha, exibe o cleanButton, caso contrário deixa somente o seachButton
 function addCleanButton() {
-  input.addEventListener(
-    "input",
-    () =>
-      (cleanButton.style.display =
-        input.value.trim() !== "block" ? "" : "none")
+  input.addEventListener("input", () =>
+      (cleanButton.style.display = input.value.trim() !== "" ? "flex" : "none")
   );
 }
 addCleanButton();
@@ -58,14 +48,37 @@ function fetchAndDisplayAlbumInfo() {
     //Emitir erro caso usuário aperte no searchButton sem adicionar valor no input
     if (inputValue === "") {
       //Utilizei a lib Sweetalert2 para emitir os erros
-      Swal.fire({
-        icon: "warning",
-        iconColor: "#2a2141",
-        confirmButtonColor: "#2a2141",
-        title:
-          "Parece que você esqueceu de informar qual álbum está buscando...",
-        text: "Por favor, digite o nome do álbum desejado.",
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: false,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
       });
+      Toast.fire({
+        icon: "warning",
+        title: "Digite o nome do álbum desejado",
+        iconColor: "#ffbb2f",
+        width: "400px",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__backInDown
+            animate__slower
+          `
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__backOutUp
+            animate__slower
+          `
+        }
+      }, );
     }
 
     try {
@@ -75,11 +88,10 @@ function fetchAndDisplayAlbumInfo() {
       );
       //Acessando data(object)/albums(object)/items[array] -> Disponibilizados pela API (Spotify)
       const data = response.data.albums.items[0];
-      console.log(data);
+      // console.log(data);
 
       //Acessando o array de artistas(criadores) e mapeando os nomes para renderiza-los (Array vindo da API)
       let artist = data.artists.map((names) => names.name).join(", ");
-      console.log(artist);
 
       //Formatando a data para o estilo BR -> (Vem da API ano-mes-dia com a formatação ficará dia/mes/ano)
       const originalDateFormat = data.release_date;
@@ -88,24 +100,37 @@ function fetchAndDisplayAlbumInfo() {
       const year = new Date(originalDateFormat).getFullYear();
       const formattedDate = `${day}/0${month}/${year}`;
 
-      //Acessando a <div> (main-album-info) no HTML
-      const mainAlbumInfo = document.getElementById("main-album-info");
+      //Acessando a <div> (user-response) no HTML
+      const userResponse = document.getElementById("user-response");
       //Adicionando as informações(vindas da API) no HTML
-      mainAlbumInfo.innerHTML = `
-         <a id="album-cover-image" href="${data.images[0].url}" target="blank_"><img id="album-cover" src="${data.images[0].url}" class="hover"/></a>
-          <a id="album-name">${data.name}</a>
-          <a id="album-creator-name">${artist}</a> 
-          <p id="release-date">${formattedDate}</p>
-      `;
+      userResponse.innerHTML = `
+          <ul id="main-album-info">
+            <li>
+             <a href="${data.images[0].url}" target="blank_">
+             <img src="${data.images[0].url}" class="hover"/>
+             </a>
+            </li>
+            <li>
+             <a>${data.name}</a>
+            </li>
+            <li>
+             <a>${artist}</a> 
+            </li>
+            <li>
+             <p>${formattedDate}</p>
+            </li>
+          </ul>
 
-      //Acessando a <div> (additional-album-info) no HTML
-      const additionalAlbumInfo = document.getElementById(
-        "additional-album-info"
-      );
-      //Adicionando as informações(vindas da API) no HTML
-      additionalAlbumInfo.innerHTML = `
-      <p id="total-tracks">Total de faixas: ${data.total_tracks}</p>
-      <a id="view-album" href="${data.external_urls.spotify}" target="blank_">Visualizar álbum</a>
+        <div id="additional-album-info">
+         <ul>
+           <li>
+             <p>Total de faixas: ${data.total_tracks}</p>
+           </li>
+           <li>
+             <a href="${data.external_urls.spotify}" target="blank_">Visualizar álbum</a>
+           </li>
+         </ul>
+        </div>
       `;
     } catch (error) {
       console.log(error);

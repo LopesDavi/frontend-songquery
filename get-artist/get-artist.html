@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="get-artist.css" />
     <link
       rel="shortcut icon"
-      href="/images/logo-project.png"
+      href="../assets/images/logo-project.png"
       type="image/x-icon"
     />
 
@@ -30,30 +30,34 @@
 
     <!--sweetAlert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--animate.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <div id="main-container">
       <div id="artist-search">
         <input id="input" type="text" placeholder="Digite o nome do artista" />
-        <button id="search-button" class="buttons" type="button"><img src="/images/icons/icon-search.svg" class="search-button"></button>
-        <button id="clean-button" class="buttons" type="button"><img src="/images/icons/icon-close.svg" class="clean-button"></button>
+        <button id="search-button" type="button">
+          <img src="../assets/icons/icon-search.svg" />
+        </button>
+        <button id="clean-button" type="button">
+          <img src="../assets/icons/icon-close.svg" />
+        </button>
       </div>
-
       <div id="user-response">
-        <div id="artist-infos-1">
-          <a id="artist-cover-image">
-            <img src="/images/logo-name-project.png" />
-          </a>
-        </div>
-
-        <div id="artist-infos-2"></div>
+        <img src="../assets/images/logo-name-project.png" />
       </div>
 
       <a id="back-home" href="/index.html">Voltar</a>
     </div>
-    <div id="project-logo">
-      <img src="/images/name-project.png" />
-    </div>
+
+    <img id="logo-project" src="../assets/images/name-project.png" />
+
     <script src="get-artist.js"></script>
   </body>
 </html>
+ 

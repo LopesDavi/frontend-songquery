@@ -26,10 +26,7 @@ cleanInput(
     const userResponse = document.getElementById("user-response");
     //Limpando informções que estavam renderizadas
     userResponse.innerHTML = `
-        <img src="/assets/images/logo-name-project.png" id="track-cover"/>
-        <a id="track-name"></a>
-        <a id="track-artist-name"></a>
-        <div id="track-preview"></div>
+      <img src="../assets/images/logo-name-project.png"/>
     `;
   }
 );

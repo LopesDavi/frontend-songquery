@@ -5,10 +5,10 @@
 }
 
 :root {
-  --cor-roxo: #2a2141;
-  --cor-lilas: #ad95c8;
-  --cor-branco: white;
-  --cor-preto: black;
+  --bg-color: #2a2141;
+  --border-color: #ad95c8;
+  --font-color: white;
+  --bg-body: black;
 }
 
 body {
@@ -17,14 +17,16 @@ body {
   justify-content: center;
   flex-direction: column;
 
+  height: 100vh;
+
   font-family: "Inter", sans-serif;
 
-  background-color: black;
+  background-color: var(--bg-body);
 }
 
 /*========== DIV - MAIN-CONTAINER ==========*/
-div#main-container {
-  border: 2px solid var(--cor-lilas);
+#main-container {
+  border: 2px solid var(--border-color);
 
   display: flex;
   align-items: center;
@@ -34,10 +36,7 @@ div#main-container {
   width: 780px;
   height: 680px;
 
-  margin: 17vh auto 15px;
   padding: 24px;
-
-  background-color: var(--cor-preto);
 
   border-radius: 9px;
 
@@ -45,7 +44,7 @@ div#main-container {
 }
 
 /*========== DIV - ARTIST-SEARCH ==========*/
-div#artist-search {
+#artist-search {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,98 +52,94 @@ div#artist-search {
   width: 600px;
   height: 80px;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 
   gap: 5px;
 
   border-radius: 10px;
 }
 
-div#artist-search input {
-  border: 2px solid var(--cor-lilas);
+#artist-search input {
+  border: 2px solid var(--border-color);
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
 
   width: 300px;
   height: 40px;
 
   padding-left: 10px;
 
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
+  background-color: var(--bg-color);
+
+  color: var(--border-color);
 
   border-radius: 10px;
 
-  color: var(--cor-lilas);
-
-  background-color: var(--cor-roxo);
-}
-
-div#artist-search input:focus {
   outline: none;
 }
 
-div#artist-search button {
-  border: 2px solid var(--cor-lilas);
+#artist-search button {
+  border: 2px solid var(--border-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   width: 40px;
   height: 39px;
 
+  background-color: var(--bg-color);
+
   border-radius: 10px;
 
-  background-color: var(--cor-roxo);
-}
-
-div#artist-search button .search-button {
-  width: 17px;
-}
-
-div#artist-search button .clean-button {
-  width: 15px;
-}
-
-
-
-div#artist-search .buttons {
   transition-duration: 0.2s;
   transition-property: box-shadow;
 }
 
-div#artist-search .buttons:hover {
+#artist-search button:hover {
   transition-duration: 0.2s;
   transition-property: box-shadow;
 
-  box-shadow: 0 0 7px var(--cor-lilas);
+  box-shadow: 0 0 7px var(--border-color);
+}
+
+#artist-search button img {
+  width: 15.5px;
 }
 /*========== DIV - USER-RESPONSE ==========*/
-div#user-response {
+#user-response {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  text-align: center;
-
   width: 600px;
   height: 500px;
 
-  padding: 10px;
+  background-color: var(--bg-color);
 
   gap: 20px;
 
   border-radius: 10px;
 
-  background-color: var(--cor-roxo);
+  padding: 10px;
 }
 
-div#artist-infos-1 {
+#user-response img {
+  width: 280px;
+}
+
+#artist-infos-container-1 {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: row;
 
   width: 480px;
-
 }
 
-a#artist-cover-image img {
+#artist-infos-container-1 > a > img {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,15 +148,19 @@ a#artist-cover-image img {
 
   transition-duration: 0.2s;
   transition-property: box-shadow;
+
+  border-radius: 100%;
+  width: 170px;
+
 }
 
-a#artist-cover-image img.hover:hover {
+#artist-infos-container-1 > a > img:hover {
   transition-duration: 0.2s;
   transition-property: box-shadow;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-div#artist-info-container {
+#artist-info-container-2 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -170,40 +169,23 @@ div#artist-info-container {
   gap: 20px;
 }
 
-div#artist-info-container.hidden {
-  display: none;
-}
-
-div#followers-and-popularity {
+#artist-info-container-2 > div:nth-of-type(1){
   display: flex;
   align-items: center;
   justify-content: center;
+
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: var(--font-color);
 
   gap: 30px;
-
-  color: var(--cor-branco);
 }
 
-div#view-artist {
-  border: 3px solid var(--cor-lilas);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#artist-info-container-2 > div:nth-of-type(2) > a {
+  border: 3px solid var(--border-color);
 
-  transition-duration: 0.2s;
-  transition-property: box-shadow;
-
-  border-radius: 5px;
-}
-
-div#view-artist:hover {
-  transition-duration: 0.2s;
-  transition-property: box-shadow;
-
-  box-shadow: 0 0 7px var(--cor-lilas);
-}
-
-div#view-artist a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,46 +193,54 @@ div#view-artist a {
   width: 215px;
   height: 30px;
 
-  color: var(--cor-branco);
-
+  color: var(--font-color);
   text-decoration: none;
+
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+
+  border-radius: 5px;
 }
 
-div#view-artist a.hidden {
-  display: none;
+#artist-info-container-2 > div:nth-of-type(2) > a:hover {
+  transition-duration: 0.2s;
+  transition-property: box-shadow;
+
+  box-shadow: 0 0 7px var(--border-color);
 }
 
-div#artist-infos-2 {
+#artist-infos-container-3 {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 
   gap: 15px;
 }
 
-div#artist-infos-2 a {
+#artist-infos-container-3 a {
   font-family: "Inter", sans-serif;
   font-weight: bold;
   font-size: 20px;
 
-  color: var(--cor-branco);
+  color: var(--font-color);
 
   text-decoration: none;
 }
 
-div#artist-infos-2 p {
+#artist-infos-container-3 p {
   font-family: "Inter", sans-serif;
   font-weight: bold;
   font-size: 18px;
 
   width: 350px;
 
-  color: var(--cor-branco);
+  color: var(--font-color);
 }
 
 /*========== BUTTON - VOLTAR ==========*/
-div#main-container #back-home {
+#back-home {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,18 +250,18 @@ div#main-container #back-home {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 15px;
-  color: var(--cor-branco);
+  color: var(--font-color);
 
   width: 100px;
   height: 30px;
 
   border-radius: 5px;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 }
 
-/*========== DIV - LOGO ==========*/
-div#project-logo img {
+/*========== IMG - LOGO ==========*/
+#logo-project {
   width: 180px;
   height: 55px;
 }
