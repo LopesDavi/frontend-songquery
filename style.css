@@ -5,31 +5,36 @@
 }
 
 :root {
-  --cor-roxo: #2a2141;
-  --cor-lilas: #ad95c8;
-  --cor-branco: #ffff;
-  --cor-preto: #000000;
+  --bg-color: #2a2141;
+  --border-color: #ad95c8;
+  --font-color: white;
+  --bg-body: black;
 }
 
 body {
-  background-color: var(--cor-preto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  
+  background-color: var(--bg-body);
 }
 
-div#main-container {
+#main-container {
   display: flex;
   align-items: center;
   flex-direction: column;
 
   gap: 5px;
 
-  margin: 100px auto;
   padding: 24px;
 
   width: 700px;
 
   border-radius: 10px;
 
-  background-color: #2a2141;
+  background-color: var(--bg-color);
 }
 
 /*====================ID - LOGO====================*/
@@ -49,11 +54,11 @@ div#main-container {
   font-family: "Inter", sans-serif;
   font-size: 20px;
 
-  color: var(--cor-branco);
+  color: var(--font-color);
 }
 
 /*====================ID - BUTTONS====================*/
-div#main-container div#buttons {
+#buttons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +83,7 @@ div#main-container div#buttons {
 }
 
 #buttons ul li button {
-  border: 2px solid var(--cor-lilas);
+  border: 2px solid var(--border-color);
 
   display: flex;
   align-items: center;
@@ -95,12 +100,12 @@ div#main-container div#buttons {
   font-size: 18px;
   font-weight: bold;
 
-  background-color: var(--cor-roxo);
+  background-color: var(--bg-color);
 
   transition-duration: 0.3s;
   transition-property: background-color;
 
-  box-shadow: 3px 3px 3px var(--cor-lilas);
+  box-shadow: 3px 3px 3px var(--border-color);
 }
 
 #buttons ul li button:hover {
@@ -110,7 +115,7 @@ div#main-container div#buttons {
 }
 
 /*====================ID - SOCIAL====================*/
-div#main-container div#social {
+#social {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,7 +155,7 @@ div#main-container div#social {
 }
 
 #social p, a {
-  color: var(--cor-branco);
+  color: var(--font-color);
 
   font-family: "Inter", sans-serif;
 }

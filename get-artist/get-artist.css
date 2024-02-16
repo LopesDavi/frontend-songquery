@@ -259,9 +259,3 @@ body {
 
   background-color: var(--bg-color);
 }
-
-/*========== IMG - LOGO ==========*/
-#logo-project {
-  width: 180px;
-  height: 55px;
-}
